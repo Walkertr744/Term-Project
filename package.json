@@ -1,0 +1,23 @@
+{
+  "name": "term-project",
+  "version": "1.0.0",
+  "description": "Full-stack production scheduling and job management application for machine shops",
+  "homepage": "https://github.com/Walkertr744/Term-Project#readme",
+  "bugs": {
+    "url": "https://github.com/Walkertr744/Term-Project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Walkertr744/Term-Project.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}

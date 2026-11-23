@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MachineFlow | Production Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <script src="/js/dashboard.js" defer></script>
+</head>
+
+<body>
+
+    <div id="dashboard-container">
+
+        <aside id="sidebar">
+            <header id="sidebar-header">
+                <h1>Machine<span>Flow</span></h1>
+                <p>MACHINE SHOP OPS</p>
+            </header>
+
+            <nav id="sidebar-nav">
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="#production-jobs">Jobs</a>
+                <a href="#production-schedule">Schedule</a>
+                <a href="employees.html">Employees</a>
+                <a href="#tool-of-the-day">API Data</a>
+                <a href="settings.html">Settings</a>
+            </nav>
+        
+        </aside>
+
+
+
+
+
+
+
+
+
+        <main id="dashboard-content">
+
+            <header id="dashboard-header">
+
+                <div id="dashboard-title">
+                    <h2><span>//</span> Production Dashboard</h2>
+                    <p>Manage jobs, scheduling, and shop production in one place.</p>
+                </div>
+
+                <div id="header-actions">
+
+                    <input type="search" id="job-search" placeholder="Search jobs or part numbers..." aria-label="Search jobs or part numbers">
+
+                    <button id="notification-button" aria-label="Notifications">🔔</button>
+
+                    <div id="employee-profile">
+                        <span id="profile-icon">👤</span>
+
+                        <div id="employee-info">
+                            <h3 id="employee-name">David Clapp</h3>
+                            <p id="employee-role">Production Manager</p>
+                        </div>
+
+                         <button id="profile-button" aria-label="Profile menu">▼</button>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+
+            <section id="summary-cards">
+
+                <div class="summary-card">
+                    <span class="summary-icon">📋</span>
+
+                    <div>
+                        <h3>Total Jobs</h3>
+                        <p id="total-jobs">128</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <span class="summary-icon">📅</span>
+
+                    <div>
+                        <h3>Due This Week</h3>
+                        <p id="due-this-week">18</p>
+                    </div>
+                </div>
+
+                <div class="summary-card" id="hot-jobs-card">
+                    <span class="summary-icon">🔥</span>
+
+                    <div>
+                        <h3>Hot Jobs</h3>
+                        <p id="hot-jobs">5</p>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <span class="summary-icon">⚙️</span>
+
+                    <div>
+                        <h3>Machines Running</h3>
+                        <p id="machines-running">8 / 10</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+
+
+
+            <div id="production-content">
+
+                <section id="production-jobs">
+
+                    <header id="jobs-header">
+
+                        <div id="jobs-title">
+                            <h2>Production Jobs</h2>
+                            <p>Active and upcoming jobs with priority, status, and due dates.</p>
+                        </div>
+
+                        <div id="jobs-actions">
+                            <button id="add-job-button">+ Add Job</button>
+                            <button id="import-button">Import</button>
+                            <button id="export-button">Export</button>
+                        </div>
+
+                    </header>
+
+                    <div id="job-filters">
+
+                        <div class="filter">
+                            <label for="priority-filter">Priority:</label>
+
+                            <select id="priority-filter">
+                                <option value="all">All Priorities</option>
+                                <option value="critical">Critical</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+
+                        <div class="filter">
+                            <label for="status-filter">Status:</label>
+
+                            <select id="status-filter">
+                                <option value="all">All Statuses</option>
+                                <option value="not-started">Not Started</option>
+                                <option value="setup">Setup</option>
+                                <option value="in-production">In Production</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+
+                        <div class="filter">
+                            <label for="due-filter">Due Date:</label>
+
+                            <select id="due-filter">
+                                <option value="all">All Dates</option>
+                                <option value="overdue">Overdue</option>
+                                <option value="today">Due Today</option>
+                                <option value="7">Next 7 Days</option>
+                                <option value="30">Next 30 Days</option>
+                            </select>
+                        </div>
+
+                        <div id="hot-job-filter">
+                            <input type="checkbox" id="hot-only">
+                            <label for="hot-only">Show Hot Jobs Only</label>
+                        </div>
+
+                    </div>
+                    
+                    <div id="jobs-table-container">
+
+                        <table id="jobs-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Job #</th>
+                                    <th>Part #</th>
+                                    <th>Qty</th>
+                                    <th>Start Date</th>
+                                    <th>Due Date</th>
+                                    <th>Revision</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="jobs-table-body">
+
+                                <tr class="hot-job">
+                                    <td>378001</td>
+                                    <td>68441-001</td>
+                                    <td>25</td>
+                                    <td>11/16/2026</td>
+                                    <td>11/23/2026</td>
+                                    <td>B</td>
+                                    <td><span class="priority hot">Hot</span></td>
+                                    <td><span class="status in-production">● In Production</span></td>
+                                    <td>
+                                        <button class="edit-button">Edit</button>
+                                        <button class="delete-button">Delete</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>378002</td>
+                                    <td>68443-003</td>
+                                    <td>50</td>
+                                    <td>11/18/2026</td>
+                                    <td>11/24/2026</td>
+                                    <td>A</td>
+                                    <td><span class="priority critical">Critical</span></td>
+                                    <td><span class="status setup">● Setup</span></td>
+                                    <td>
+                                        <button class="edit-button">Edit</button>
+                                        <button class="delete-button">Delete</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>378003</td>
+                                    <td>68442-005</td>
+                                    <td>100</td>
+                                    <td>11/19/2026</td>
+                                    <td>11/27/2026</td>
+                                    <td>C</td>
+                                    <td><span class="priority high">High</span></td>
+                                    <td><span class="status in-production">● In Production</span></td>
+                                    <td>
+                                        <button class="edit-button">Edit</button>
+                                        <button class="delete-button">Delete</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>378004</td>
+                                    <td>8BBE0002-137</td>
+                                    <td>10</td>
+                                    <td>11/20/2026</td>
+                                    <td>12/10/2026</td>
+                                    <td>A</td>
+                                    <td><span class="priority low">Low</span></td>
+                                    <td><span class="status setup">● Setup</span></td>
+                                    <td>
+                                        <button class="edit-button">Edit</button>
+                                        <button class="delete-button">Delete</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>378005</td>
+                                    <td>68456-002</td>
+                                    <td>75</td>
+                                    <td>11/20/2026</td>
+                                    <td>11/30/2026</td>
+                                    <td>B</td>
+                                    <td><span class="priority medium">Medium</span></td>
+                                    <td><span class="status not-started">● Not Started</span></td>
+                                    <td>
+                                        <button class="edit-button">Edit</button>
+                                        <button class="delete-button">Delete</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>378006</td>
+                                    <td>TSPCSP100N63N100</td>
+                                    <td>15</td>
+                                    <td>11/20/2026</td>
+                                    <td>11/25/2026</td>
+                                    <td>A</td>
+                                    <td><span class="priority high">High</span></td>
+                                    <td><span class="status completed">● Completed</span></td>
+                                    <td>
+                                        <button class="edit-button">Edit</button>
+                                        <button class="delete-button">Delete</button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+
+
+
+                <aside id="dashboard-widgets">
+
+                </aside>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <div id="job-modal">
+
+    <div id="job-modal-content">
+
+        <header id="job-modal-header">
+            <h2><span>//</span> Add Production Job</h2>
+            <button id="close-modal" type="button"
+                aria-label="Close form">×</button>
+        </header>
+
+        <p>Enter the details for a new production job.</p>
+
+        <form id="add-job-form">
+
+            <div id="job-form-fields">
+
+                <div class="form-field">
+                    <label for="job-number">Job Number</label>
+                    <input type="text" id="job-number"
+                        placeholder="378007" maxlength="6" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="part-number">Part Number</label>
+                    <input type="text" id="part-number"
+                        placeholder="68442-001" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity"
+                        placeholder="50" min="1" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="revision">Revision Level</label>
+                    <input type="text" id="revision"
+                        placeholder="A" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="start-date">Start Date</label>
+                    <input type="date" id="start-date" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="due-date">Due Date</label>
+                    <input type="date" id="due-date" required>
+                </div>
+
+            </div>
+
+            <div class="form-field">
+                <label for="job-status">Production Status</label>
+
+                <select id="job-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="setup">Setup</option>
+                    <option value="in-production">In Production</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div id="automatic-priority">
+                <h3>Priority Level</h3>
+                <p>Automatically calculated based on the due date.</p>
+            </div>
+
+            <div id="hot-job-override">
+                <input type="checkbox" id="hot-job">
+                <label for="hot-job">🔥 Designate as HOT Job</label>
+                <p>Manually override the automatic priority level.</p>
+            </div>
+
+            <div id="job-form-actions">
+                <button type="button" id="cancel-job">Cancel</button>
+                <button type="submit" id="create-job">+ Create Job</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+</body>
+</html>

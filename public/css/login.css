@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eef2f7;
+}
+
+#login-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+#branding-section {
+    width: 50%;
+    background-color: #12283e;
+    background-image: linear-gradient(
+        rgba(18, 40, 62, 0.85),
+        rgba(18, 40, 62, 0.75)
+    ), url("../images/cnc-background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    padding: 50px;
+}
+
+#login-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 40px;
+}
+
+#branding-header h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+#branding-header span {
+    color: #3699ef;
+}
+
+#branding-header p {
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-top: 5px;
+    color: #b8c9db;
+}
+
+#branding-intro {
+    margin-top: 70px;
+}
+
+#branding-intro h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+#branding-intro span {
+    color: #3699ef;
+}
+
+#branding-intro p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #d1dce8;
+}
+
+#branding-features {
+    margin-top: 40px;
+}
+
+.features {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.features h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.features p {
+    font-size: 15px;
+    color: #d1dce8;
+    margin: 5px 0 0;
+}
+
+.features-icon {
+    background-color: #214773;
+    border-radius: 10px;
+    font-size: 25px;
+    padding: 15px;
+}
+
+/*Login Scetion*/
+#login-card {
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+#login-card h2 span {
+    color: #3699ef;
+}
+
+#login-card h2 {
+    font-size: 30px;
+    color: #12283e;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#login-card > p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#security-message {
+    background-color: #e8f4ec;
+    color: #287340;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+#security-message p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#login-form label {
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    color: #12283e;
+    margin-bottom: 10px;
+}
+
+#employee-number,
+#password {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+#employee-help {
+    font-size: 10px;
+    color: #64748b;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+#remember-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#remember-section label {
+    font-weight: normal;
+    margin: 0;
+}
+
+#remember-me {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+#login-button {
+    width: 100%;
+    background-color: #1768bc;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#login-button:hover {
+    background-color: #12559b;
+}
